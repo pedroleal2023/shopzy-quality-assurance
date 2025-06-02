@@ -13,40 +13,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout do código
-      uses: actions/checkout@v3
+      - name: Checkout do código
+        uses: actions/checkout@v3
 
-    - name: Configurar Java
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '21'
+      - name: Configurar Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
 
-    - name: Configurar Maven cache
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
+      - name: Configurar Maven cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
 
-    - name: Compilar o projeto
-      run: mvn clean compile
+      - name: Compilar o projeto
+        run: mvn clean compile
 
-    - name: Executar testes unitários
-      run: mvn test
+      - name: Executar testes unitários
+        run: mvn test
 
-    - name: Gerar relatório de cobertura JaCoCo
-      run: mvn jacoco:report
+      - name: Gerar relatório de cobertura JaCoCo
+        run: mvn verify
 
-    - name: Publicar resultados dos testes
-      uses: actions/upload-artifact@v3
-      with:
-        name: TestResults
-        path: target/surefire-reports/
+      - name: Publicar resultados dos testes
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults
+          path: target/surefire-reports/
 
-    - name: Publicar relatório de cobertura
-      uses: actions/upload-artifact@v3
-      with:
-        name: JaCoCoCoverage
-        path: target/site/jacoco/
+      - name: Publicar relatório de cobertura
+        uses: actions/upload-artifact@v4
+        with:
+          name: JaCoCoCoverage
+          path: target/site/jacoco/
