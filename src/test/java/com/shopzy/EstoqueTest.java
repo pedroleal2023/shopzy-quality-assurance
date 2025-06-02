@@ -8,7 +8,7 @@ public class EstoqueTest {
     @Test
     public void testAdicionarProdutoAoEstoque() {
         Estoque estoque = new Estoque();
-        Product produto = new Product("Teclado Mecânico", 300.0);
+        Produto produto = new Produto("Teclado Mecânico", 300.0);
 
         estoque.adicionarProduto(produto, 5);
 
@@ -19,7 +19,7 @@ public class EstoqueTest {
     @Test
     public void testReduzirEstoque() {
         Estoque estoque = new Estoque();
-        Product produto = new Product("Monitor", 1500.0);
+        Produto produto = new Produto("Monitor", 1500.0);
         estoque.adicionarProduto(produto, 10);
 
         estoque.reduzirEstoque(produto, 3);

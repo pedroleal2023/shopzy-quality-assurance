@@ -8,9 +8,9 @@ public class CarrinhoDeComprasTest {
     @Test
     public void testAdicionarProduto() {
         CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
-        Product product = new Product("Camisa", 50.0);
+        Produto produto = new Produto("Camisa", 50.0);
 
-        carrinho.adicionarProduto(product);
+        carrinho.adicionarProduto(produto);
 
         assertEquals(1, carrinho.quantidadeDeProdutos());
     }
@@ -18,8 +18,8 @@ public class CarrinhoDeComprasTest {
     @Test
     public void testCalcularTotal() {
         CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
-        carrinho.adicionarProduto(new Product("Camisa", 50.0));
-        carrinho.adicionarProduto(new Product("Calça", 100.0));
+        carrinho.adicionarProduto(new Produto("Camisa", 50.0));
+        carrinho.adicionarProduto(new Produto("Calça", 100.0));
 
         assertEquals(150.0, carrinho.calcularTotal());
     }

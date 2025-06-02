@@ -9,7 +9,7 @@ public class PedidoTest {
     public void testAdicionarProdutoAoPedido() {
         Cliente cliente = new Cliente("Pedro", "12345678900", "pedro@email.com");
         Pedido pedido = new Pedido(cliente);
-        Product produto = new Product("Smartphone", 2500.0);
+        Produto produto = new Produto("Smartphone", 2500.0);
 
         pedido.adicionarProduto(produto);
 
@@ -21,8 +21,8 @@ public class PedidoTest {
     public void testCalcularTotalPedido() {
         Cliente cliente = new Cliente("Pedro", "12345678900", "pedro@email.com");
         Pedido pedido = new Pedido(cliente);
-        pedido.adicionarProduto(new Product("Smartphone", 2500.0));
-        pedido.adicionarProduto(new Product("Fone Bluetooth", 150.0));
+        pedido.adicionarProduto(new Produto("Smartphone", 2500.0));
+        pedido.adicionarProduto(new Produto("Fone Bluetooth", 150.0));
 
         assertEquals(2650.0, pedido.calcularTotal());
     }

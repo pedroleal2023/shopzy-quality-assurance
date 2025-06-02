@@ -1,10 +1,10 @@
 package com.shopzy;
 
-public class Product {
+public class Produto {
     private String name;
     private double price;
 
-    public Product(String name, double price) {
+    public Produto(String name, double price) {
         this.name = name;
         this.price = price;
     }

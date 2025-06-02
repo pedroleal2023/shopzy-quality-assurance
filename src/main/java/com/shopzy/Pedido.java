@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Pedido {
     private Cliente cliente;
-    private List<Product> produtos;
+    private List<Produto> produtos;
     private boolean pago;
 
     public Pedido(Cliente cliente) {
@@ -14,13 +14,13 @@ public class Pedido {
         this.pago = false;
     }
 
-    public void adicionarProduto(Product produto) {
+    public void adicionarProduto(Produto produto) {
         produtos.add(produto);
     }
 
     public double calcularTotal() {
         return produtos.stream()
-                .mapToDouble(Product::getPrice)
+                .mapToDouble(Produto::getPrice)
                 .sum();
     }
 
@@ -36,7 +36,7 @@ public class Pedido {
         return cliente;
     }
 
-    public List<Product> getProdutos() {
+    public List<Produto> getProdutos() {
         return produtos;
     }
 }
