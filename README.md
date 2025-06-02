@@ -15,6 +15,21 @@ A implementação foca em garantir que os componentes essenciais do **Shopzy** e
 - **Maven** (gerenciador de dependências e build)
 - **JaCoCo** (para análise de cobertura de testes)
 
+## 📊 Acessando Relatórios de Testes
+
+Após rodar o CI/CD, os **resultados dos testes** podem ser visualizados na aba **"Actions"** do GitHub.  
+Para visualizar o relatório de cobertura JaCoCo:
+
+1. Vá até a aba **"Actions"** no GitHub.
+2. Acesse o último workflow rodado.
+3. Baixe o artefato **JaCoCoCoverage** e explore os relatórios dentro de `target/site/jacoco/`.
+
+
+## 🔄 CI/CD Automatizado
+
+Este projeto utiliza **GitHub Actions** para automação de testes. Sempre que um código é atualizado na branch `main`, os testes são executados automaticamente, garantindo a qualidade do software.
+
+
 ## 📂 Estrutura do Projeto
 
 ```
