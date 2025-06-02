@@ -35,3 +35,18 @@ jobs:
 
     - name: Executar testes unitários
       run: mvn test
+
+    - name: Gerar relatório de cobertura JaCoCo
+      run: mvn jacoco:report
+
+    - name: Publicar resultados dos testes
+      uses: actions/upload-artifact@v3
+      with:
+        name: TestResults
+        path: target/surefire-reports/
+
+    - name: Publicar relatório de cobertura
+      uses: actions/upload-artifact@v3
+      with:
+        name: JaCoCoCoverage
+        path: target/site/jacoco/
